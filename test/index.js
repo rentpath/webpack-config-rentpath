@@ -7,17 +7,15 @@ describe('webpackConfigRentpath', function () {
     expect(webpackConfigRentpath).to.exist
   })
 
-  context('browser environment', function () {
-    before(function () {
-      this.jsdom = require('jsdom-global')()
-    })
+  it('exports "config"', function () {
+    expect(webpackConfigRentpath.config).to.exist
+  })
 
-    after(function () {
-      this.jsdom()
-    })
+  it('exports "appEnv"', function () {
+    expect(webpackConfigRentpath.appEnv).to.exist
+  })
 
-    it('has a global window object', function () {
-      expect(typeof window).to.not.equal('undefined')
-    })
+  it('defaults "appEnv" to "development"', function () {
+    expect(webpackConfigRentpath.appEnv).to.eql('development')
   })
 })

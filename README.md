@@ -47,7 +47,7 @@ config.plugins.push(new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, 
 module.exports = config
 ```
 
-If you need to make environment-specific config changes, you can take advantage of the `appEnv` variable that `webpack-config-rentpath` exports in addition to `config`. The value of `appEnv` is a string obtained from the environment variable `APPLICATION_ENVIRONMENT` and defaults to `"development"` if missing. For example:
+If you need to make environment-specific config changes, you can take advantage of the `appEnv` variable that `webpack-config-rentpath` exports in addition to `config`. The value of `appEnv` is a string obtained from the environment variable `APPLICATION_ENVIRONMENT` and defaults to `"production"` if missing. For example:
 
 ```javascript
 var webpackConfigRentpath = require('webpack-config-rentpath')

@@ -14,7 +14,7 @@ const jsDir = path.resolve(cwd, 'app/assets/javascripts')
 const cssDir = path.resolve(cwd, 'app/assets/stylesheets')
 const imageDir = path.resolve(cwd, 'app/assets/images')
 
-const appEnv = process.env.APPLICATION_ENVIRONMENT || 'development'
+const appEnv = process.env.APPLICATION_ENVIRONMENT || 'production'
 const isDevelopment = appEnv == 'development'
 
 const jsFilename = function() {

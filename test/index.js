@@ -15,7 +15,7 @@ describe('webpackConfigRentpath', function () {
     expect(webpackConfigRentpath.appEnv).to.exist
   })
 
-  it('defaults "appEnv" to "development"', function () {
-    expect(webpackConfigRentpath.appEnv).to.eql('development')
+  it('defaults "appEnv" to "production"', function () {
+    expect(webpackConfigRentpath.appEnv).to.eql('production')
   })
 })

@@ -91,7 +91,7 @@ const config = {
   resolve: {
     root: [jsDir, nodeModulesDir, cssDir, imageDir],
     alias: aliasConfig(),
-    extensions: ["", ".js.coffee", ".coffee", ".webpack.js", ".web.js", ".scss", ".css", ".js", ".jsx", ".json", ".hbs"]
+    extensions: ["", ".js.coffee", ".coffee", ".webpack.js", ".web.js", ".js", ".jsx", ".hbs", ".scss", ".css", ".json"]
   },
   amd: { jQuery: true },
   plugins: [

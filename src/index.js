@@ -75,7 +75,7 @@ const config = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: [/node_modules/],
         cacheDirectory: true,
         presets: ['es2015']
@@ -92,6 +92,9 @@ const config = {
     root: [jsDir, nodeModulesDir, cssDir, imageDir],
     alias: aliasConfig(),
     extensions: ["", ".js.coffee", ".coffee", ".webpack.js", ".web.js", ".scss", ".css", ".js", ".jsx", ".json", ".hbs"]
+  },
+  resolveLoader: {
+    root: nodeModulesDir
   },
   amd: { jQuery: true },
   plugins: [

@@ -111,6 +111,14 @@ const config = {
   ]
 }
 
+if (!isDevelopment) {
+  config.plugins.push(new webpack.DefinePlugin({
+    'process.env': {
+      'NODE_ENV': JSON.stringify('production')
+    }
+  }))
+}
+
 /** Add images to build **/
 const images = glob.sync('app/assets/images/**/*.+(jpg|jpeg|gif|png|ico)')
 images.forEach(image => {

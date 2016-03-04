@@ -18,7 +18,7 @@ const appEnv = process.env.APPLICATION_ENVIRONMENT || 'production'
 const isDevelopment = appEnv == 'development'
 
 const jsFilename = function() {
-  if(isDevelopment) {
+  if (isDevelopment) {
     return "[name]-bundle.js"
   } else {
     return "[name]-bundle-[chunkhash].js"
@@ -26,7 +26,7 @@ const jsFilename = function() {
 }
 
 const cssFilename = function() {
-  if(isDevelopment) {
+  if (isDevelopment) {
     return "[name]-bundle.css"
   } else {
     return "[name]-bundle-[chunkhash].css"
@@ -37,7 +37,7 @@ const imageLoader = function() {
   const result = {
     test: /.*\.(gif|png|jpe?g|svg|ico)$/i,
   }
-  if(isDevelopment) {
+  if (isDevelopment) {
     result.loader = "file?name=[name].[ext]"
   } else {
     result.loaders = [
@@ -50,7 +50,7 @@ const imageLoader = function() {
 
 const aliasConfig = function() {
   const aliasConfigFile = path.resolve(cwd, 'webpack-alias.config.js')
-  if(fs.existsSync(aliasConfigFile)) {
+  if (fs.existsSync(aliasConfigFile)) {
     return require(aliasConfigFile)
   } else {
     return {}
@@ -103,7 +103,7 @@ const config = {
     new webpack.NoErrorsPlugin(),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
     new ExtractTextPlugin(cssFilename(), { allChunks: true }),
-    new AssetManifestPlugin('public/assets/webpack-assets.json', path.resolve(cwd, 'app/assets/images')),
+    new AssetManifestPlugin('public/assets/webpack-assets.json', imageDir),
     new AssetsPlugin({
       path: path.join(cwd, 'public', 'assets'),
       filename: 'webpack-bundles.json'

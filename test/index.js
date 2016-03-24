@@ -1,21 +1,24 @@
-import sinon from 'sinon'
 import { expect } from 'chai'
 import webpackConfigRentpath from '../src'
 
-describe('webpackConfigRentpath', function () {
-  it('should be defined', function () {
+describe('webpackConfigRentpath', function() {
+  it('should be defined', function() {
     expect(webpackConfigRentpath).to.exist
   })
 
-  it('exports "config"', function () {
+  it('exports "config"', function() {
     expect(webpackConfigRentpath.config).to.exist
   })
 
-  it('exports "appEnv"', function () {
+  it('exports "appEnv"', function() {
     expect(webpackConfigRentpath.appEnv).to.exist
   })
 
-  it('defaults "appEnv" to "production"', function () {
+  it('exports "isDevelopment"', function() {
+    expect(webpackConfigRentpath.isDevelopment).to.exist
+  })
+
+  it('defaults "appEnv" to "production"', function() {
     expect(webpackConfigRentpath.appEnv).to.eql('production')
   })
 })

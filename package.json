@@ -1,6 +1,6 @@
 {
-  "version": "0.0.7",
   "name": "webpack-config-rentpath",
+  "version": "0.0.0-semantically-realeased",
   "description": "Shared webpack config across our apps",
   "license": "MIT",
   "homepage": "https://github.com/rentpath/webpack-config-rentpath",
@@ -74,8 +74,8 @@
     "npm": ">=3"
   },
   "config": {
-     "commitizen": {
-       "path": "./node_modules/cz-conventional-changelog"
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }

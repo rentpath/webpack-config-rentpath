@@ -23,7 +23,8 @@
     "test:cov": "babel-node `npm bin`/istanbul cover `npm bin`/_mocha -- --recursive",
     "preversion": "npm run lint && npm test",
     "version": "npm run compile && git add -A lib",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "assets-webpack-plugin": "^3.1.0",
@@ -57,16 +58,24 @@
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-preset-stage-0": "^6.3.13",
     "chai": "^3.4.1",
+    "commitizen": "^2.3.0",
+    "cz-conventional-changelog": "^1.1.5",
     "eslint": "^2.1.0",
     "eslint-config-rentpath": "^2.0.0",
     "istanbul": "^1.0.0-alpha",
     "mocha": "^2.3.4",
     "jsdom": "8.0.2",
     "jsdom-global": "1.6.1",
+    "semantic-release": "^4.3.5",
     "sinon": "^1.17.3"
   },
   "engines": {
     "node": ">=4.2.1",
     "npm": ">=3"
+  },
+  "config": {
+     "commitizen": {
+       "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

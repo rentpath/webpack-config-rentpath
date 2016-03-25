@@ -50,7 +50,7 @@
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.2",
-    "webpack-asset-manifest": "git+ssh://git@github.com:rentpath/webpack-asset-manifest.git#v0.0.4",
+    "webpack-asset-manifest": "rentpath/webpack-asset-manifest",
     "webpack-md5-hash": "^0.0.5"
   },
   "devDependencies": {

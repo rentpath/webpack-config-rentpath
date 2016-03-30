@@ -78,10 +78,16 @@ module.exports = config
 * `npm run test:watch` - Same as `npm test` but watches files for changes.
 * `npm run test:cov` - Generates a test coverage report.
 
-## Distribution
-Execute one of the following commands
-```bash
-npm version patch -m "Bumped to %s"
-npm version minor -m "Bumped to %s"
-npm version major -m "Bumped to %s"
+
+## Commitizen
+ `webpack-config-rentpaht` uses [Commitizen](https://commitizen.github.io/cz-cli/) to format commit messages.
+ * Install it globally `$ npm install -g commitizen`
+Once you are ready to commit, follow the familiar github workflow, with a slight change.
 ```
+$ git add <files>
+$ git cz
+```
+`git cz` will bring up the Commitizen commit prompt, follow the instructions, and `$ git push` as usual.
+
+This commit message format is used for `semantic-release`.
+

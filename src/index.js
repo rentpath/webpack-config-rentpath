@@ -69,9 +69,7 @@ const config = {
         loader: 'babel-loader',
         exclude: [/node_modules/],
         cacheDirectory: true,
-        query: {
-	  presets: ['es2015', 'react']
-	}
+        presets: ['es2015']
       },
       { test: /\.coffee$/, loader: 'coffee-loader?sourceMap' },
       { include: /\.json$/, loaders: ['json-loader'] },

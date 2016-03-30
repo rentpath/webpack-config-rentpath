@@ -1,4 +1,5 @@
 {
+  "version": "0.0.8",
   "name": "webpack-config-rentpath",
   "version": "0.0.0-semantically-realeased",
   "description": "Shared webpack config across our apps",

@@ -80,7 +80,7 @@ module.exports = config
 
 
 ## Commitizen
- `webpack-config-rentpaht` uses [Commitizen](https://commitizen.github.io/cz-cli/) to format commit messages.
+ `webpack-config-rentpath` uses [Commitizen](https://commitizen.github.io/cz-cli/) to format commit messages.
  * Install it globally `$ npm install -g commitizen`
 Once you are ready to commit, follow the familiar github workflow, with a slight change.
 ```

@@ -29,7 +29,7 @@ const cssFilename = function() {
 
 const imageLoader = function() {
   const result = {
-    test: /.*\.(gif|png|jpe?g|ico)$/i
+    test: /.*\.(gif|png|jpe?g|svg|ico)$/i
   }
   if (isDevelopment) {
     result.loader = 'file?name=[name].[ext]'
@@ -79,7 +79,6 @@ const config = {
 	loader: ExtractTextPlugin.extract('css?sourceMap!resolve-url!sass?sourceMap') },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap!resolve-url') },
       { test: /\.hbs$/, loader: 'handlebars-loader' },
-      { test: /\.svg$/, loader: 'file?hash=sha512&digest=hex&name=[name]-[hash].svg' },
       imageLoader()
     ]
   },

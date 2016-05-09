@@ -8,6 +8,7 @@ const AssetsPlugin = require('assets-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const AssetManifestPlugin = require('webpack-asset-manifest')
 const WebpackMd5HashPlugin = require('webpack-md5-hash')
+const Autoprefixer = require('autoprefixer')
 
 const cwd = process.cwd()
 
@@ -76,8 +77,8 @@ const config = {
       { test: /\.coffee$/, loader: 'coffee-loader?sourceMap' },
       { include: /\.json$/, loaders: ['json-loader'] },
       { test: /\.scss$/,
-	loader: ExtractTextPlugin.extract('css?sourceMap!resolve-url!sass?sourceMap') },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap!resolve-url') },
+	loader: ExtractTextPlugin.extract('css?sourceMap!postcss!resolve-url!sass?sourceMap') },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!resolve-url') },
       { test: /\.hbs$/, loader: 'handlebars-loader' },
       { test: /\.svg$/, loader: 'file?hash=sha512&digest=hex&name=[name]-[hash].svg' },
       imageLoader()
@@ -104,7 +105,9 @@ const config = {
       path: path.join(cwd, 'public', 'assets'),
       filename: 'webpack-bundles.json'
     })
-  ]
+  ],
+
+  postcss: [ Autoprefixer ]
 }
 
 if (!isDevelopment) {

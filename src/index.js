@@ -25,7 +25,7 @@ const jsFilename = function() {
 }
 
 const cssFilename = function() {
-  return isDevelopment ? '[name]-bundle.css' : '[name]-bundle-[chunkhash].css'
+  return isDevelopment ? '[name]-bundle.css' : '[name]-bundle-[contenthash:20].css'
 }
 
 const imageLoader = function() {

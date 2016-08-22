@@ -95,7 +95,6 @@ const config = {
   },
   amd: { jQuery: true },
   plugins: [
-    new WebpackMd5HashPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),

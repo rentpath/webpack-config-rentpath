@@ -36,9 +36,7 @@ const imageLoader = function() {
     result.loader = 'file?name=[name].[ext]'
   } else {
     result.loaders = [
-      'file?hash=sha512&digest=hex&name=[name]-[hash].[ext]',
-      'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, ' +
-	'pngquant:{quality: "65-90", speed: 4}}'
+      'file?hash=sha512&digest=hex&name=[name]-[hash].[ext]'
     ]
   }
   return result
@@ -70,14 +68,16 @@ const config = {
         loader: 'babel-loader',
         exclude: [/node_modules/],
         cacheDirectory: true,
-	query: {
+        query: {
           presets: ['es2015', 'react']
-	}
+        }
       },
       { test: /\.coffee$/, loader: 'coffee-loader?sourceMap' },
       { include: /\.json$/, loaders: ['json-loader'] },
-      { test: /\.scss$/,
-	loader: ExtractTextPlugin.extract('css?sourceMap!postcss!resolve-url!sass?sourceMap') },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css?sourceMap!postcss!resolve-url!sass?sourceMap')
+      },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!resolve-url') },
       { test: /\.hbs$/, loader: 'handlebars-loader' },
       { test: /\.svg$/, loader: 'file?hash=sha512&digest=hex&name=[name]-[hash].svg' },

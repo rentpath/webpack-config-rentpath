@@ -21,7 +21,6 @@
     "test": "mocha --compilers js:babel-core/register --timeout 5000 --recursive",
     "test:watch": "npm run test -- --watch",
     "test:cov": "babel-node `npm bin`/istanbul cover `npm bin`/_mocha -- --recursive",
-    "postinstall": "npm run compile",
     "preversion": "npm run lint && npm test",
     "version": "npm run compile && git add -A lib",
     "postversion": "git push --follow-tags",

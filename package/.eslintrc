@@ -1,0 +1,6 @@
+{
+  "extends": "rentpath",
+  "env": {
+    "node": true
+  }
+}

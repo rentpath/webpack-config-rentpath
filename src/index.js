@@ -7,7 +7,6 @@ const webpack = require('webpack')
 const AssetsPlugin = require('assets-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const AssetManifestPlugin = require('webpack-asset-manifest')
-const WebpackMd5HashPlugin = require('webpack-md5-hash')
 const Autoprefixer = require('autoprefixer')
 
 const cwd = process.cwd()
@@ -30,7 +29,7 @@ const cssFilename = function() {
 
 const imageLoader = function() {
   const result = {
-    test: /.*\.(gif|png|jpe?g|ico)$/i
+    test: /.*\.(gif|png|jpe?g|ico)$/i,
   }
   if (isDevelopment) {
     result.loader = 'file?name=[name].[ext]'
@@ -38,7 +37,7 @@ const imageLoader = function() {
     result.loaders = [
       'file?hash=sha512&digest=hex&name=[name]-[hash].[ext]',
       'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, ' +
-	'pngquant:{quality: "65-90", speed: 4}}'
+	'pngquant:{quality: "65-90", speed: 4}}',
     ]
   }
   return result
@@ -52,15 +51,15 @@ const aliasConfig = function() {
 const config = {
   context: cwd,
   entry: {
-    main: './app/assets/javascripts/main'
+    main: './app/assets/javascripts/main',
   },
   output: {
     path: path.join(cwd, 'public', 'assets'),
     filename: jsFilename(),
-    publicPath: '/assets/'
+    publicPath: '/assets/',
   },
   externals: {
-    pinball: 'pinball'
+    pinball: 'pinball',
   },
   devtool: 'source-map',
   module: {
@@ -70,28 +69,28 @@ const config = {
         loader: 'babel-loader',
         exclude: [/node_modules/],
         cacheDirectory: true,
-	query: {
-          presets: ['es2015', 'react']
-	}
+        query: {
+          presets: ['es2015', 'react'],
+        },
       },
       { test: /\.coffee$/, loader: 'coffee-loader?sourceMap' },
       { include: /\.json$/, loaders: ['json-loader'] },
       { test: /\.scss$/,
-	loader: ExtractTextPlugin.extract('css?sourceMap!postcss!resolve-url!sass?sourceMap') },
+	loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap') },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!resolve-url') },
       { test: /\.hbs$/, loader: 'handlebars-loader' },
       { test: /\.svg$/, loader: 'file?hash=sha512&digest=hex&name=[name]-[hash].svg' },
-      imageLoader()
-    ]
+      imageLoader(),
+    ],
   },
   resolve: {
     root: [jsDir, nodeModulesDir, cssDir, imageDir],
     alias: aliasConfig(),
     extensions: ['', '.js.coffee', '.coffee', '.webpack.js', '.web.js', '.js', '.jsx',
-                 '.hbs', '.scss', '.css', '.json']
+                 '.hbs', '.scss', '.css', '.json'],
   },
   resolveLoader: {
-    root: nodeModulesDir
+    root: nodeModulesDir,
   },
   amd: { jQuery: true },
   plugins: [
@@ -102,18 +101,18 @@ const config = {
     new AssetManifestPlugin('public/assets/webpack-assets.json', imageDir),
     new AssetsPlugin({
       path: path.join(cwd, 'public', 'assets'),
-      filename: 'webpack-bundles.json'
-    })
+      filename: 'webpack-bundles.json',
+    }),
   ],
 
-  postcss: [ Autoprefixer ]
+  postcss: [Autoprefixer],
 }
 
 if (!isDevelopment) {
   config.plugins.push(new webpack.DefinePlugin({
     'process.env': {
-      NODE_ENV: JSON.stringify('production')
-    }
+      NODE_ENV: JSON.stringify('production'),
+    },
   }))
 }
 
@@ -124,5 +123,5 @@ images.forEach(image => {
 })
 
 module.exports = {
-  appEnv, config, isDevelopment
+  appEnv, config, isDevelopment,
 }
